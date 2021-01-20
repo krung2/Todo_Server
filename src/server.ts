@@ -7,7 +7,6 @@ const load = async () => {
     }
 
     await loaders[i]();
-    console.log(3);
   }
 };
 

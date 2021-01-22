@@ -15,6 +15,9 @@
       "./types"
     ],
     "paths": {
+      "@models/*": [
+        "src/models/*"
+      ],
       "@interface/*": [
         "src/interface/*"
       ],

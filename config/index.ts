@@ -12,3 +12,12 @@ const getProcessEnv = (name: string): string => {
 };
 
 export const PORT = getProcessEnv('PORT');
+
+export const MYSQL = {
+  DATABASE: getProcessEnv('MYSQL_DATABASE'),
+  HOST: getProcessEnv('MYSQL_HOST'),
+  PORT: parseInt(getProcessEnv('MYSQL_PORT'), 10),
+  USERNAME: getProcessEnv('MYSQL_USERNAME'),
+  PASSWORD: getProcessEnv('MYSQL_PASSWORD'),
+  SYNCHRONIZE: getProcessEnv('MYSQL_SYNDCHRONIZE') === 'true',
+};

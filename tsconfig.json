@@ -15,6 +15,9 @@
       "./types"
     ],
     "paths": {
+      "@services/*": [
+        "src/services/*"
+      ],
       "@lib/*": [
         "src/lib/*"
       ],

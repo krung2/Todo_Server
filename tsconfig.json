@@ -15,6 +15,12 @@
       "./types"
     ],
     "paths": {
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@repositories/*": [
+        "src/repositories/*"
+      ],
       "@models/*": [
         "src/models/*"
       ],

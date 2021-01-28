@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "ts-node -r tsconfig-paths/register --files src/server.ts"
+    "start": "ts-node -r tsconfig-paths/register --files src/app.ts"
   },
   "dependencies": {
     "@types/cors": "^2.8.9",

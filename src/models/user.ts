@@ -28,7 +28,7 @@ export default class User {
     name: 'email',
     unique: true,
   })
-  email!: true;
+  email!: string;
 
   @Column({
     name: 'is_admin',

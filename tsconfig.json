@@ -15,6 +15,9 @@
       "./types"
     ],
     "paths": {
+      "@middlewares/*": [
+        "src/middlewares/*"
+      ],
       "@services/*": [
         "src/services/*"
       ],

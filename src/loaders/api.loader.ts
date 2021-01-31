@@ -9,6 +9,7 @@ import bodyParser from 'body-parser';
 import APIRouter from '@src/routers';
 import path from 'path';
 import Container from 'typedi';
+import ErrorMiddleware from '@middlewares/error.middleware';
 
 const load = async () => {
   const app: express.Application = express();
@@ -17,6 +18,8 @@ const load = async () => {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use('/static', express.static(path.join(__dirname, '../../public')));
   app.use('/api', Container.get(APIRouter).getRouter());
+
+  app.use(ErrorMiddleware);
 
   const server: http.Server = http.createServer(app);
 

@@ -25,12 +25,6 @@ export default class User {
   name!: string;
 
   @Column({
-    name: 'email',
-    unique: true,
-  })
-  email!: string;
-
-  @Column({
     name: 'is_admin',
     type: 'bool',
   })

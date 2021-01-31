@@ -10,7 +10,7 @@ export default class APIRouter implements ICustomRouter {
   constructor(
     private v1: V1,
   ) {
-    this.router.get('/v1', this.v1.getRouter());
+    this.router.use('/v1', this.v1.getRouter());
   }
 
   public getRouter = (): Router => this.router;

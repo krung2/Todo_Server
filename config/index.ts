@@ -21,3 +21,8 @@ export const MYSQL = {
   PASSWORD: getProcessEnv('MYSQL_PASSWORD'),
   SYNCHRONIZE: getProcessEnv('MYSQL_SYNDCHRONIZE') === 'true',
 };
+
+export const JWT = {
+  SECRET: getProcessEnv('JWT_SECERT'),
+  EXPIRES_IN: getProcessEnv('JWT_EXPIRES_IN'),
+};

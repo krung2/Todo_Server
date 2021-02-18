@@ -3,6 +3,7 @@ import TokenService from '@services/token.service';
 import LoginRequest from '@lib/request/auth/login.request';
 import { Request, Response, NextFunction } from 'express';
 import { Service } from "typedi";
+import RegisterRequest from '@lib/request/auth/register.request';
 
 @Service()
 export default class AuthController {
@@ -27,9 +28,33 @@ export default class AuthController {
 
       res.status(200).json({
         status: 200,
-        messlge: '로그인 성공',
+        message: '로그인 성공',
         token: {
           token,
+        },
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  /**
+   * @description
+   */
+  public register = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { body } = req;
+
+      const data = await new RegisterRequest(body);
+      await data.validate();
+
+      const user = await this.authService.register(data);
+
+      res.status(200).json({
+        status: 200,
+        message: '회원가입 성공',
+        data: {
+          user,
         },
       });
     } catch (err) {

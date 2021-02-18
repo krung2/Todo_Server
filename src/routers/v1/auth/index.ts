@@ -11,6 +11,7 @@ export default class AuthRouter implements ICustomRouter {
     private authController: AuthController,
   ) {
     this.router.post('/login', this.authController.login);
+    this.router.post('/register', this.authController.register);
   }
 
   public getRouter = (): Router => this.router;

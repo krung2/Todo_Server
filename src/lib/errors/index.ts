@@ -13,6 +13,10 @@ const errors: { [key: string]: IError } = {
     code: 401,
     message: '알맞지 않은 pw',
   },
+  WrongRequest: {
+    code: 400,
+    message: '검증 오류',
+  },
 };
 
 export default errors;

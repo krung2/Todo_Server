@@ -25,29 +25,18 @@ export default class User {
   name!: string;
 
   @Column({
-    name: 'email',
-    unique: true,
-  })
-  email!: true;
-
-  @Column({
     name: 'is_admin',
     type: 'bool',
+    default: false,
   })
   isAdmin!: boolean;
 
   @Column({
     name: 'is_allowed',
+    type: 'bool',
     default: false,
   })
   isAllowed!: boolean;
-
-  @Column({
-    type: 'varchar',
-    name: 'profile_image',
-    nullable: true,
-  })
-  profileImage!: string | null;
 
   @CreateDateColumn({
     name: 'created_at',

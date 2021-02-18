@@ -4,6 +4,8 @@ import CustomError from '@lib/errors/CustomError';
 import errors from '@lib/errors';
 import { Service } from "typedi";
 import { InjectRepository } from "typeorm-typedi-extensions";
+import LoginRequest from '@lib/request/auth/login.request';
+import RegisterRequest from '@lib/request/auth/register.request';
 
 @Service()
 export default class AuthService {
@@ -18,17 +20,24 @@ export default class AuthService {
    * @param id
    * @param pw
    */
-  public login = async (id: string, pw: string): Promise<User> => {
-    const user: User | undefined = await this.authRepository.getUserById(id);
+  public login = async (data: LoginRequest): Promise<User> => {
+    const user: User | undefined = await this.authRepository.getUserById(data.id);
 
     if (user === undefined) {
       throw new CustomError(errors.InappropriateId);
     }
 
-    if (user.pw === pw) {
+    if (user.pw === data.pw) {
       throw new CustomError(errors.InappropriatePw);
     }
 
     return user;
+  }
+
+  /**
+   * @description 회원가입
+   */
+  public register = async (data: RegisterRequest): Promise<User> => {
+    return await this.authRepository.addUser(data);
   }
 }

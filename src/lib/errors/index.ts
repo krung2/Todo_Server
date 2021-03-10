@@ -17,6 +17,14 @@ const errors: { [key: string]: IError } = {
     code: 400,
     message: '검증 오류',
   },
+  NotExistToken: {
+    code: 401,
+    message: '토큰 없음',
+  },
+  Forbidden: {
+    code: 403,
+    message: '권한 없음',
+  },
 };
 
 export default errors;

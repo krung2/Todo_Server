@@ -38,6 +38,19 @@ export default class AuthService {
    * @description 회원가입
    */
   public register = async (data: RegisterRequest): Promise<User> => {
-    return await this.authRepository.addUser(data);
+    return await this.authRepository.save(data);
+  }
+
+  /**
+   * @description id로 유저 찾기
+   */
+  public findUserById = async (id: string): Promise<User | null> => {
+    const user = await this.authRepository.getUserById(id);
+
+    if (user === undefined) {
+      return null;
+    }
+
+    return user;
   }
 }

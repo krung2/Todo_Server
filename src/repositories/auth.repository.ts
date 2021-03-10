@@ -11,7 +11,4 @@ export default class UserRepository extends Repository<User> {
       .getOne();
   }
 
-  public addUser = async (user: RegisterRequest): Promise<User> => {
-    return this.save(user);
-  }
 }
